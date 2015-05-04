@@ -20,7 +20,7 @@ function getCurrentUri()
 	}
 
 // This section deals with file uploads
-if(isset($_POST["submit"]))) {
+if(isset($_POST["submit"])) {
 	$filename = basename($_FILES["fileUpload"]["name"]);
 	$target_file = $dir . $filename;
 	$uploadOk = true; // maintains whether this file uploaded OK
