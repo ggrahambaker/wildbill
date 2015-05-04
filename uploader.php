@@ -78,7 +78,10 @@ if(isset($_POST["logIn"])){
 
 if($loggedIn)
 {
+	if(isset($_POST("submit")))
+	{
 	?>
+
 	<div class = "container">
 	<div class="row">
 	<div class="col-md-3 col-lg-3"></div>
@@ -117,12 +120,13 @@ if($loggedIn)
 	<div class="col-md-3 col-lg-3"></div>
 	</div>
 	</div>
-
+}
 
 <?php
 }else
 {
 	?>
+	<div class="col-md-3 col-lg-3"></div>
 	<div class="col-md-6 col-lg-6">
 			<div class="well well-add">
 				<form id="data-input" action="/uploader.php" method="POST" role="form">
@@ -137,6 +141,7 @@ if($loggedIn)
 				</form>
 			</div>
 	</div>
+	<div class="col-md-3 col-lg-3"></div>
 
 
 	<?php
