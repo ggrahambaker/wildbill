@@ -86,11 +86,38 @@ $(document).ready(function(){
 */
 var textGen = function(general, detailed, original){
 	// console.log(message);
+	var html = "";
+	html += "<table class='table table-bordered'>";
+	html += "<thead><tr><th>General Summary</th><th>Detailed Summary</th><th>Orwell's Original</th></tr></thead>";
+	html += "<tbody>";
 	for(var i = 1; i < general.length; i++){
 		// $('#reader').append("<div id='" +i +"' class='row p"+ i+"'><p id='' class'general'>" + general[i] + "</p></div>");
-		$('#reader').append(generalHtmlBuild(general, detailed, original, i));
+		html += buildTelescope(general[i], detailed[i], original[i]);
 	}
+	html += "</tbody>";
+	html += "</table>";
+	$('#reader').append(html);
 }
+
+
+var buildTelescope = function(general, detailed, original){
+	var html = "";
+	html += "<tr>";
+		html += "<td>";
+		html += general;
+		html += "</td>";
+		html += "<td>";
+		html += detailed;
+		html += "</td>";
+		html += "<td>";
+		html += original;
+		html += "</td>";
+	html += "</tr>";
+	return html;
+}
+
+
+
 var numberedGen = function(original){
 	// var full = original.join("\n	");
 	// console.log(full);
