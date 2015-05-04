@@ -58,9 +58,8 @@ if(isset($_POST["logIn"])){
 	$pw = $_POST["password"];
 	$un = $_POST["username"];
 	if($un == "wildbill" && $pw == "polenglang")
-	{
 		$loggedIn = true
-	}
+	
 
 
 }
