@@ -8,7 +8,10 @@ html, body {
 #reader {
     display: none;
 }
-
+.caro {
+    margin-left: auto;
+    margin-right: auto;
+}
 #full {
     display: none;
 }

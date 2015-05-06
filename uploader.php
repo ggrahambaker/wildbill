@@ -77,6 +77,20 @@ if(isset($_POST["logIn"])){
 	</head>
 
 <body>
+		<nav class="navbar navbar-default" role="navigation">
+			<a class="navbar-brand" href="index.html"><strong>Politics and the English Language </strong><br><small> by: <strong>George Orwell</strong></small></a>
+			<ul class="nav navbar-nav">
+				<li>
+					<a class="nav" href="telescope.html">Telescoping Diagram</a>
+				</li>
+				<li>
+					<a class="nav" href="full.html">Full Essay</a>
+				</li>
+				<li>
+					<a class="nav" href="files.php">Resources</a>
+				</li>
+			</ul>
+		</nav>
 
 <?php
 

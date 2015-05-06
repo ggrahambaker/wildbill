@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var essay = new Array();
+	var essay = [];
 	$.get('politicsandtheenglishlang.txt', function(data){
 	    var count = 0;
 	    var lines = 7;
@@ -41,33 +41,18 @@ $(document).ready(function(){
 	    		continue;
 	    	}
 	    };
-
-	    // console.log(general);
-	    // console.log(detailed);
-	    // console.log(original);
-
-	    // console.log(count);
-	    // console.log(general);
 	    
 
 	    textGen(general, detailed, original);
 	    numberedGen(original);
 
-		$('#home').click(function(){
-			$('#reader').hide();
-	    	$('#full').hide();
-			$('#main').show();
-	    });
+
 	    $('#telescope').click(function(){
 	    	$('#full').hide();
 	    	$('#main').hide();
 			$('#reader').show();
 	    });
-	    $('#fullEssay').click(function(){
-	    	$('#reader').hide();
-	    	$('#main').hide();
-	    	$('#full').show();
-	    });
+
 
 	    $('button').click(function(){
     		$(this).next().toggle();
