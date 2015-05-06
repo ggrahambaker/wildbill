@@ -1,21 +1,46 @@
 <?php
 $dir = "uploads/";
 
-function getCurrentUri()
-	{
-		$basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
-		$uri = substr($_SERVER['REQUEST_URI'], strlen($basepath)+12);
-		if (strstr($uri, '?')) $uri = substr($uri, 0, strpos($uri, '?'));
-		//$uri = '/' . trim($uri, '/');
-		return $uri;
-	}
+$basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
+$uri = substr($_SERVER['REQUEST_URI'], strlen($basepath)+12);
+if (strstr($uri, '?')) $uri = substr($uri, 0, strpos($uri, '?'));
 
-$dir = getCurrentUri() + $dir;
+$dir = $uri .$dir;
 // This section deals with finding the files currently in the directory
 $filesOnServer = scandir($dir);
-
-
 ?>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Politics and the English Language</title>
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="wb.css">
+	</head>
+
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+			<a class="navbar-brand"><strong>Politics and the English Language </strong><br><small> by: <strong>George Orwell</strong></small></a>
+			<ul class="nav navbar-nav">
+				<li>
+					<a id="home" class="nav" href="index.html">About</a>
+				</li>
+				<li>
+					<a id="telescope" class="nav" href="index.html">Telescoping Diagram</a>
+				</li>
+				<li>
+					<a id="fullEssay" class="nav" href="full.html">Full Essay</a>
+				</li>
+				<li>
+					<a id="resources" class="nav" href="files.php">Resources</a>
+				</li>
+			</ul>
+		</nav>
 <div class = "container">
 <div class = "row">
 <div class="col-md-3 col-lg-3"></div>
@@ -47,3 +72,4 @@ $filesOnServer = scandir($dir);
 <div class="col-md-3 col-lg-3"></div>
 </div>
 </div>
+</body>
