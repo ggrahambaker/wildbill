@@ -48,7 +48,7 @@ $filesOnServer = scandir($dir);
 <div class="col-md-6 col-lg-6">
 
 	<div class="well">
-		<legend>Bills Resources</legend>
+		<legend>Resources</legend>
 		<?php
 		if (count($filesOnServer) < 3) {
 			print "The admins haven't uploaded any resources to the server.";
