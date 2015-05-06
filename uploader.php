@@ -10,15 +10,6 @@ $maxFileSize = 30000000000;
 // Error message string
 $errorMessage = "";
 
-function getCurrentUri()
-	{
-		$basepath = implode('/', array_slice(explode('/', $_SERVER['SCRIPT_NAME']), 0, -1)) . '/';
-		$uri = substr($_SERVER['REQUEST_URI'], strlen($basepath)+12);
-		if (strstr($uri, '?')) $uri = substr($uri, 0, strpos($uri, '?'));
-		//$uri = '/' . trim($uri, '/');
-		return $uri;
-	}
-
 // This section deals with file uploads
 if(isset($_POST["submit"])) {
 	$filename = basename($_FILES["fileUpload"]["name"]);
@@ -51,19 +42,19 @@ if(isset($_POST["submit"])) {
 		}
 	}
 }
-
-
-if(isset($_POST["logIn"])){
-
-	$pw = $_POST["password"];
-	$un = $_POST["username"];
-	if($un == "wildbill" && $pw == "polenglang")
-		$loggedIn = true
-	
-
-
+$un = $pw = '';
+if(isset($_POST['logIn'])){
+	$pw = $_POST['password'];
+	$un = $_POST['name'];
+	if($un == "wildbill" && $pw == "polenglang"){
+		$loggedIn = true;
+	}
 }
+
+
 ?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -96,8 +87,6 @@ if(isset($_POST["logIn"])){
 
 if($loggedIn)
 {
-	if(isset($_POST("submit")))
-	{
 	?>
 
 	<div class = "container">
@@ -138,9 +127,9 @@ if($loggedIn)
 	<div class="col-md-3 col-lg-3"></div>
 	</div>
 	</div>
-}
+	<?php	
 
-<?php
+
 }else
 {
 	?>
@@ -155,7 +144,7 @@ if($loggedIn)
 					<div class="form-group">
 						<textarea class="form-control" name="password" placeholder="Shibboleth" rows="3"></textarea>
 					</div>
-					<button  type="logIn" class="text-center btn btn-primary">Submit</button>
+					<button  type="logIn" name = "logIn" class="text-center btn btn-primary">Submit</button>
 				</form>
 			</div>
 	</div>
@@ -164,3 +153,5 @@ if($loggedIn)
 
 	<?php
 }
+?>
+</body>
